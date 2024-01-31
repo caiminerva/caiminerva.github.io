@@ -149,20 +149,25 @@
   /**
    * Skills animation
    */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
+  document.addEventListener('DOMContentLoaded', function () {
+  let skillsContent = document.querySelector('.skills-content');
+
+  if (skillsContent) {
     new Waypoint({
-      element: skilsContent,
+      element: skillsContent,
       offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          console.log(el.getAttribute('aria-valuenow'))
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
+      handler: function (direction) {
+        let progressBars = document.querySelectorAll('.progress .progress-bar');
+
+        progressBars.forEach((bar) => {
+          let percentage = bar.getAttribute('aria-valuenow');
+          bar.style.width = percentage + '%';
         });
       }
-    })
+    });
   }
+});
+
 
   /**
    * Porfolio isotope and filter
