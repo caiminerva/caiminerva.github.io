@@ -157,6 +157,7 @@
       handler: function(direction) {
         let progress = select('.progress .progress-bar', true);
         progress.forEach((el) => {
+          console.log(el.getAttribute('aria-valuenow'))
           el.style.width = el.getAttribute('aria-valuenow') + '%'
         });
       }
