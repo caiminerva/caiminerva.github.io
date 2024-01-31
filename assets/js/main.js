@@ -149,24 +149,19 @@
   /**
    * Skills animation
    */
-  document.addEventListener('DOMContentLoaded', function () {
-  let skillsContent = document.querySelector('.skills-content');
-
-  if (skillsContent) {
+  let skilsContent = select('.skills-content');
+  if (skilsContent) {
     new Waypoint({
-      element: skillsContent,
+      element: skilsContent,
       offset: '80%',
-      handler: function (direction) {
-        let progressBars = document.querySelectorAll('.progress .progress-bar');
-
-        progressBars.forEach((bar) => {
-          let percentage = bar.getAttribute('aria-valuenow');
-          bar.style.width = percentage + '%';
+      handler: function(direction) {
+        let progress = select('.progress .progress-bar', true);
+        progress.forEach((el) => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%'
         });
       }
-    });
+    })
   }
-});
 
 
   /**
